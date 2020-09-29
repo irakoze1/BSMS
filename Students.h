@@ -1,3 +1,5 @@
+#include "rang.hpp"
+using namespace std;
 class Date
 {
 public:
@@ -21,7 +23,7 @@ public:
     float Mark;
     void course()
     {
-        cout << rang::fg::green << ".Title :" << Title << " , Credits " credit<< endl;
+        cout << rang::fg::green << ".Title :" << Title << " , Credits :" << credit <<" , Mark :" << Mark << endl;
     }    
 };
 class Student
