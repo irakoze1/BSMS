@@ -7,7 +7,7 @@ public:
     bool
     NoValid()
     {
-        return day < 1 && day > 32 && month < 1 && month > 13 && year < 1981 && year > 2021;
+        return day < 1 || day > 32 || month < 1 || month > 13 || year < 1981 || year > 2021 ;
     }
     void print()
     {
