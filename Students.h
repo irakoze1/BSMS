@@ -23,7 +23,7 @@ public:
     float Mark;
     void course()
     {
-        cout << rang::fg::green << ".Title :" << Title << " , Credits :" << credit <<" , Mark :" << Mark << endl;
+        cout << rang::fg::green << "\n.Title :" << Title << " , Credits :" << credit <<" , Mark :" << Mark << endl;
     }    
 };
 class Student

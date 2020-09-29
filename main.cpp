@@ -240,7 +240,7 @@ void student_manage()
     do {
         cout << rang::fg::green<< "Enter m Number of Courses Between 6 And 15 :";
         cin >> m;
-    } while (m < 6 || m > 15);
+    } while (m < 2 || m > 15);
     int n = m + 1;
     Course C[m];
     while (m > 0) {
@@ -260,11 +260,10 @@ void student_manage()
 
         m--;
     }
-
-    for (int i = 0; i<m; i++) {
-        cout << fg::green << "Course " << i+1 << " Title: " << C[i].Title << " Credit: "<< C[i].credit << " Course: "<< C[i].credit <<endl;
+    for (int  i = 0; i < n-1; i++)
+    {
+        C[i].course();
     }
-
     Student S = Student(r, name, username, address, C, D);
     student_display(S);
     cout << rang::fg::green<< "Do You Wish To Modify Student Characteristics? Yes/No :";
