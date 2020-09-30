@@ -201,12 +201,23 @@ marks_above_av(Course *m)
     int l = lenght;
     int av = marks_av(m);
     while (l) {
-    if (m[lenght - l].Mark < av) {
+    if (m[lenght - l].Mark > av) {
         ab_av.push_back(m[lenght - l].Mark);
         }
         l--;
     }
     return ab_av;
+}
+void
+print_vec(vector<int> v)
+{
+    int r = v.size();
+    int n = r;
+    while (n) {
+        cout << rang::fg::green<< v[r - n] << "\t";
+        n--;
+    }
+    cout << endl;
 }
 
 //Stundent Manage
@@ -529,20 +540,6 @@ void principal()
     }
 }
 
-
-void
-print_vec(vector<int> v)
-{
-    int r = v.size();
-    int n = r;
-    while (n) {
-        cout << v[r - n];
-        n--;
-    }
-    cout << "\n";
-}
-
-
 void
 marks_menu()
 {
@@ -605,9 +602,11 @@ marks_menu()
                 cout << rang::fg::green<< "The Worst mark is :" << capture << endl;
                 break;
             case 6:
+                cout << rang::fg::green<< "Above Average :";
                 print_vec(marks_above_av(marks));
                 break;
             case 7:
+                cout << rang::fg::green<< "Bellow Average :";
                 print_vec(marks_bellow_av(marks));
                 break;
             case 8:
