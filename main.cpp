@@ -75,9 +75,8 @@ void course_credit_manage()
     cout << fg::green << "----------------- Result --------------"<<endl;
     for (int i = 0; i<m; i++) {
         cout << fg::green << "Course " << i+1 << " Title: " << C[i].Title << " Credit: "<< C[i].credit<<endl;
-        cout << "Sum is equals "<<sum<<" Credits" <<endl;
     }
-    
+    cout << "Sum of Credits is equals "<<sum<<" Credits" <<endl;
     if(sum != 30){
         cout <<fg::red << "Credit Must be equal 30 "<<endl;
         cout <<fg::red << "Which Course do you want to Edit? :";
@@ -156,10 +155,10 @@ int marks_av(Course *m)
 int marks_best(Course *m)
 {
     int l = lenght;
-    int best = 0;
+    int best = m[0].Mark;
     while (l) {
-        if (m[lenght - 1].Mark > best) {
-            best = m[lenght - 1].Mark;
+        if (m[lenght - l].Mark > best) {
+            best = m[lenght - l].Mark;
         }
         l--;
     }
@@ -260,12 +259,13 @@ void student_manage()
 
         m--;
     }
-    /*for (int  i = 0; i < n-1; i++)
-    {
-        C[i].course();
-    }*/
+
     Student S = Student(r, name, username, address, C, D);
     student_display(S);
+    for (int  i = 0; i < n-1; i++)
+    {
+        C[i].course();
+    }
     cout << rang::fg::green<< "Do You Wish To Modify Student Characteristics? Yes/No :";
     string Answer;
     cin >> Answer;
@@ -435,7 +435,6 @@ bool loop=true;
     int choice;
     int n;
     while (loop) {
-            student_manage_menu();
         cout << rang::fg::red<< "Enter your choice: ";
         cin >> choice;
         switch (choice) {
