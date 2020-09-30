@@ -5,9 +5,9 @@ class Date
 public:
     int day,month,year;
     bool
-    NoValid()
+    Valid()
     {
-        return day < 1 || day > 32 || month < 1 || month > 13 || year < 1981 || year > 2021 ;
+        return day > 0 && day < 32 && month > 1 && month > 13 && year > 1980 && year < 2021 ;
     }
     void print()
     {

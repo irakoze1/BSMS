@@ -83,14 +83,14 @@ void course_credit_manage()
         cout <<fg::red << "Which Course do you want to Edit? :";
         cin >> index;
         
-        Course ti = C[index-1];
-        sum -= ti.credit;
+        Course t = C[index-1];
+        sum -= t.credit;
         
-        cout << fg::green << "Enter new Credit for " << ti.Title << " :";
-        cin >> ti.credit;
-        C[index-1] = ti;
+        cout << fg::green << "Enter new Credit for " << t.Title << " :";
+        cin >> t.credit;
+        C[index-1] = t;
         
-        sum +=ti.credit;
+        sum +=t.credit;
         cout << "Sum Now is equals "<<sum<<" Credits" <<endl;
         goto loop;
     }
@@ -107,7 +107,7 @@ marks_manage_create()
     Course *C = new Course();
     cout << rang::fg::green<< "--------- Course Marks To Manage -------"<<endl;
     do{
-    cout << rang::fg::green<< "Enter Number of Course:";
+    cout << rang::fg::green<< "Enter m Number of Courses:";
     cin >> m;
     }while(m <= 0);
     int n = m + 1;
@@ -221,7 +221,7 @@ void student_manage()
     cin >> D.month;
     cout << rang::fg::green<< "Enter Day :";
     cin >> D.day;
-    if(D.NoValid()) cout <<rang::fg::red<< "The date is not Valid"<<endl;
+    if(D.Valid()) cout <<rang::fg::yellow<< "The date is Valid"<<endl;
     D.print();
     cout << rang::fg::green<< " -------------------- Create a new Student ----------------------\n ";
     cout << rang::fg::green<< "Enter Name :";
@@ -244,7 +244,7 @@ void student_manage()
     int n = m + 1;
     Course C[m];
     while (m > 0) {
-        cout << rang::fg::green<< "---------- Course N"<< n - m<<" -------------" << endl;
+        cout << rang::fg::green<< "---------- Course N0"<< n - m<<" -------------" << endl;
 
         do{
             cout << rang::fg::green<< "Enter The Credit Between 2 And 5 :";
@@ -260,10 +260,10 @@ void student_manage()
 
         m--;
     }
-    for (int  i = 0; i < n-1; i++)
+    /*for (int  i = 0; i < n-1; i++)
     {
         C[i].course();
-    }
+    }*/
     Student S = Student(r, name, username, address, C, D);
     student_display(S);
     cout << rang::fg::green<< "Do You Wish To Modify Student Characteristics? Yes/No :";
@@ -306,7 +306,7 @@ vector<Student>
 stundent_manage_creat()
 {
     vector<Student> all;
-    cout << rang::fg::green<< "Enter The Number of Students: ";
+    cout << rang::fg::green<< "Enter The Number m of Students :";
     int n;
     cin >> n;
     int m = n + 1;
@@ -336,7 +336,8 @@ stundent_manage_creat()
         cin >> dt.year;
         course_marks = marks_manage_create();
         all.push_back(
-            Student(regstNum, name, surname, address, course_marks, dt));
+            Student(regstNum, name, surname, address, course_marks, dt)
+        );
         n--;
     }
     return all;
